@@ -1,0 +1,47 @@
+name: Feature Request
+description: Propose an enhancement to the audit vault or its presentation
+title: "[FEAT] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a **completed, frozen audit vault** (v1.0.0). Enhancements are limited to:
+        - Presentation improvements (README clarity, repo metadata, CI)
+        - Additional verification receipts (new independent checks)
+        - Cross-references to related work (Core B, other families)
+        - Tooling that does not modify the vault contents
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should be added/changed and why
+      placeholder: |
+        Add a GitHub Pages site rendering README.md with permalinks to each section.
+        Rationale: reviewers often view via web UI; anchor links improve navigation.
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - README/docs only
+        - CI/workflows
+        - GitHub repo settings (topics, description, branch protection)
+        - New verification receipt (independent check)
+        - Cross-reference/link to external work
+      default: 0
+    validations:
+      required: true
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Constraints Acknowledged
+      options:
+        - label: This change does NOT modify any file under `lean/`, `proofs/`, `config/`, `harness/`, or the manifest/certificate
+          required: true
+        - label: This change does NOT re-run or re-verify the Lean elaboration
+          required: true
+        - label: This change maintains $P_{narrative} = 0$ (no fluff, no speculation)
+          required: true

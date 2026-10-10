@@ -1,0 +1,60 @@
+name: Bug Report
+description: Report a verification discrepancy or replication failure
+title: "[BUG] "
+labels: ["bug", "verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This vault is a **fixed audit record**. Bug reports should concern:
+        - Manifest/hash mismatches on clean clone
+        - Replication command failures (Section 8 of README)
+        - CI workflow false positives/negatives
+        - Documentation errors (counts, hashes, commands)
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Lean version, how you cloned/verified
+      placeholder: |
+        OS: Ubuntu 22.04 / Windows 11
+        Lean: leanprover/lean4:v4.34.1 (via elan)
+        Clone: `git clone https://github.com/aidilamrym-ops/the-asymmetric-wager-msaf-family017`
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command That Failed
+      description: Exact command from Section 8 (Command A or B) or CI step
+      placeholder: |
+        Set-Location <clone-root>
+        $expected = "18B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C"
+        $actual   = (Get-FileHash -LiteralPath MANIFEST.sha256 -Algorithm SHA256).Hash
+        "MANIFEST-HASH=$actual MATCH=$($actual -eq $expected)"
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Actual Output
+      description: Full stdout/stderr including exit code
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Output
+      description: What README Section 8 says should happen
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I verified this on a clean clone (not a modified working tree)
+          required: true
+        - label: I used the pinned toolchain (leanprover/lean4:v4.34.1)
+          required: true

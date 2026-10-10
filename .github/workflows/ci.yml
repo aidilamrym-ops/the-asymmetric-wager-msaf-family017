@@ -1,0 +1,89 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify-manifest:
+    name: Manifest Consistency
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify MANIFEST.sha256 hash
+        run: |
+          EXPECTED="18B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C"
+          ACTUAL=$(sha256sum MANIFEST.sha256 | cut -d' ' -f1)
+          echo "MANIFEST-HASH=$ACTUAL"
+          echo "MATCH=$([ "$ACTUAL" = "$EXPECTED" ] && echo true || echo false)"
+          if [ "$ACTUAL" != "$EXPECTED" ]; then exit 1; fi
+      - name: Verify manifest line count
+        run: |
+          LINES=$(wc -l < MANIFEST.sha256)
+          echo "MANIFEST-LINES=$LINES"
+          if [ "$LINES" -ne 5252 ]; then exit 1; fi
+      - name: Verify total file count
+        run: |
+          # 5261 = 5252 MANIFEST entries + 9 documented exclusions
+          # (MANIFEST.sha256, README.md, RELEASE_v1.0.0.md,
+          #  config/patches/README.md, 5 files under .github/).
+          # See README Section 1 (Manifest coverage row).
+          COUNT=$(find . -type f ! -path './.git/*' | wc -l)
+          echo "TOTAL-FILES=$COUNT"
+          if [ "$COUNT" -ne 5261 ]; then exit 1; fi
+
+  verify-certificate:
+    name: Certificate Hash
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify OAI_FAMILY_017_CORE_CERTIFICATE.md hash
+        run: |
+          EXPECTED="07121A536CC5956D7F83673D288A28609711E489B7FB6FCF5EC3237F751AA2E4"
+          ACTUAL=$(sha256sum OAI_FAMILY_017_CORE_CERTIFICATE.md | cut -d' ' -f1)
+          echo "CERT-HASH=$ACTUAL"
+          if [ "$ACTUAL" != "$EXPECTED" ]; then exit 1; fi
+
+  verify-license:
+    name: Apache-2.0 Compliance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check LICENSE exists
+        run: test -f LICENSE
+      - name: Check NOTICE exists
+        run: test -f NOTICE
+      - name: Verify LICENSE is Apache-2.0
+        run: |
+          if ! grep -q "Apache License, Version 2.0" LICENSE; then
+            echo "LICENSE does not contain Apache-2.0 header"
+            exit 1
+          fi
+
+  verify-lean-toolchain:
+    name: Lean Toolchain Pin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify lean-toolchain pin
+        run: |
+          if ! grep -q "leanprover/lean4:v4.34.1" lean-toolchain; then
+            echo "lean-toolchain not pinned to v4.34.1"
+            exit 1
+          fi
+
+  verify-readme-integrity:
+    name: README Integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required sections present
+        run: |
+          for section in "System Identification" "Forensic Chronology" "Kernel Verification" "Integration Interaction" "Harness Bounds" "Scholarly Report" "Critical Path" "Scope and Limits" "Replication" "Licensing"; do
+            if ! grep -q "$section" README.md; then
+              echo "Missing section: $section"
+              exit 1
+            fi
+          done

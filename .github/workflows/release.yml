@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., v1.0.0)'
+        required: true
+        type: string
+      notes:
+        description: 'Release notes'
+        required: false
+        type: string
+
+jobs:
+  create-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify manifest before release
+        run: |
+          EXPECTED="18B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C"
+          ACTUAL=$(sha256sum MANIFEST.sha256 | cut -d' ' -f1)
+          if [ "$ACTUAL" != "$EXPECTED" ]; then
+            echo "MANIFEST hash mismatch, aborting release"
+            exit 1
+          fi
+      - name: Verify certificate
+        run: |
+          EXPECTED="07121A536CC5956D7F83673D288A28609711E489B7FB6FCF5EC3237F751AA2E4"
+          ACTUAL=$(sha256sum OAI_FAMILY_017_CORE_CERTIFICATE.md | cut -d' ' -f1)
+          if [ "$ACTUAL" != "$EXPECTED" ]; then
+            echo "Certificate hash mismatch, aborting release"
+            exit 1
+          fi
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          name: ${{ github.event.inputs.version }}
+          body: |
+            ${{ github.event.inputs.notes }}
+            ---
+            **Verification Receipts**
+            - MANIFEST.sha256: `18B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C`
+            - OAI_FAMILY_017_CORE_CERTIFICATE.md: `07121A536CC5956D7F83673D288A28609711E489B7FB6FCF5EC3237F751AA2E4`
+            - Lean toolchain: `leanprover/lean4:v4.34.1`
+            - Files: 5,254 (5,252 manifest entries + README + RELEASE)
+          draft: false
+          prerelease: false
+          files: |
+            MANIFEST.sha256
+            OAI_FAMILY_017_CORE_CERTIFICATE.md
+            RELEASE_v1.0.0.md
+            LICENSE
+            NOTICE
