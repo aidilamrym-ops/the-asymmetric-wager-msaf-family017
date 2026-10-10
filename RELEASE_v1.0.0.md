@@ -10,9 +10,9 @@
 | Artifact | SHA-256 |
 |---|---|
 | `OAI_FAMILY_017_CORE_CERTIFICATE.md` | `07121A536CC5956D7F83673D288A28609711E489B7FB6FCF5EC3237F751AA2E4` |
-| `MANIFEST.sha256` (855,315 bytes, 5,252 entries) | `C9FC5684B3E01539F39B86BB316A255ECC804CFB58B807727DD3A1227A56AD38` |
+| `MANIFEST.sha256` (855,217 bytes, 5,251 entries) | `1740C56582B5B4673EF8CF2DFF89109248F8F3848DB7D880F3FE9ECD231059D0` |
 
-Coverage: 5,252 manifest entries + the manifest file itself + this release note (excluded by construction: it quotes the manifest hash, which forbids mutual inclusion). Total repository objects: 5,254.
+Coverage: 5,251 manifest entries + the manifest file itself + this release note and `README.md` (each excluded by construction: both quote the manifest hash, which forbids mutual inclusion). Total repository objects: 5,254.
 
 Verification:
 
