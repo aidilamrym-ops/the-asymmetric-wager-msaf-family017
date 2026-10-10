@@ -12,7 +12,7 @@
 | `OAI_FAMILY_017_CORE_CERTIFICATE.md` | `07121A536CC5956D7F83673D288A28609711E489B7FB6FCF5EC3237F751AA2E4` |
 | `MANIFEST.sha256` (850044 bytes, 5252 entries) | `18B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C` |
 
-Coverage: 5,251 manifest entries + the manifest file itself + this release note and `README.md` (each excluded by construction: both quote the manifest hash, which forbids mutual inclusion). Total repository objects: 5,254.
+Coverage: 5,252 manifest entries + 10 documented exclusions (the manifest file itself; this release note and `README.md`, each quoting the manifest hash; `config/patches/README.md`; `.gitattributes`; 5 files under `.github/`). Total repository objects: 5,262.
 
 Verification:
 
@@ -23,7 +23,7 @@ Verification:
 
 ## Content
 
-- 869/869 PiExponent sources, 4,345 compiled proof artifacts, 5,251 staged objects.
+- 869/869 PiExponent sources, 4,345 compiled proof artifacts, 5,252 locked manifest entries.
 - Axiomatic footprint: `[propext, Classical.choice, Quot.sound]` for all three probed entry declarations.
 - Escape-token scan: 0 hits across all hazard classes, canary control live.
 

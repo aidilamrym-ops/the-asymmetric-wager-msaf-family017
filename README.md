@@ -11,10 +11,10 @@ Formal Verification Report Â· Forensic Chronology Log Â· Public Replication 
 | Canonical target | Value |
 |---|---|
 | Repository | `aidilamrym-ops/the-asymmetric-wager-msaf-family017` (public) |
-| Remote tree | 5,261 files, clean working tree, branch `main` |
+| Remote tree | 5,262 files, clean working tree, branch `main` |
 | Verified commits | `d151220` (vault initialization) â†’ `6b0be7a` (URL alignment & final staging) |
 | $118B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C` |
-| Manifest coverage | 5,252 locked entries (850,044 bytes); exclusions (9): `MANIFEST.sha256` (self), `README.md` and `RELEASE_v1.0.0.md` (each quotes the manifest hash; mutual inclusion is not constructible), `config/patches/README.md` (plain patch doc, not hashed at lock time), `.github/` (5 post-lock CI/template files: 2 workflows, 2 issue templates, 1 PR template) |
+| Manifest coverage | 5,252 locked entries (850,044 bytes); exclusions (10): `MANIFEST.sha256` (self), `README.md` and `RELEASE_v1.0.0.md` (each quotes the manifest hash; mutual inclusion is not constructible), `config/patches/README.md` (plain patch doc, not hashed at lock time), `.gitattributes` (byte-stability pin for the two hashed receipts, post-lock), `.github/` (5 post-lock CI/template files: 2 workflows, 2 issue templates, 1 PR template) |
 | Certificate SHA-256 | `07121A536CC5956D7F83673D288A28609711E489B7FB6FCF5EC3237F751AA2E4` (`OAI_FAMILY_017_CORE_CERTIFICATE.md`) |
 | Evaluation toolchain | Lean v4.34.1 (`leanprover/lean4:v4.34.1`), pinned `lakefile.lean` + `lake-manifest.json` |
 | Audited subtree | `OAI.NumberTheory.PiExponent`: 869/869 sources, 4,345 compiled artifacts |
@@ -213,7 +213,7 @@ $expected = "18B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C"
 $actual   = (Get-FileHash -LiteralPath MANIFEST.sha256 -Algorithm SHA256).Hash
 "MANIFEST-HASH=$actual MATCH=$($actual -eq $expected)"
 (Get-Content -LiteralPath MANIFEST.sha256 | Measure-Object -Line).Lines   # expected: 5252
-(Get-ChildItem -Recurse -File -Force | Where-Object { $_.FullName -notmatch '\\\.git\\' } | Measure-Object).Count   # expected: 5261 (excludes .git internals)
+(Get-ChildItem -Recurse -File -Force | Where-Object { $_.FullName -notmatch '\\\.git\\' } | Measure-Object).Count   # expected: 5262 (excludes .git internals)
 (Get-FileHash -LiteralPath OAI_FAMILY_017_CORE_CERTIFICATE.md -Algorithm SHA256).Hash
 # expected: 07121A536CC5956D7F83673D288A28609711E489B7FB6FCF5EC3237F751AA2E4
 ```

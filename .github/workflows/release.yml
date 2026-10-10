@@ -50,7 +50,7 @@ jobs:
             - MANIFEST.sha256: `18B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C`
             - OAI_FAMILY_017_CORE_CERTIFICATE.md: `07121A536CC5956D7F83673D288A28609711E489B7FB6FCF5EC3237F751AA2E4`
             - Lean toolchain: `leanprover/lean4:v4.34.1`
-            - Files: 5,254 (5,252 manifest entries + README + RELEASE)
+            - Files: 5,262 (5,252 manifest entries + 10 documented exclusions; see README Section 1)
           draft: false
           prerelease: false
           files: |

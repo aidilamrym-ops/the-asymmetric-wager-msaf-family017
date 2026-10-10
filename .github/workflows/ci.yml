@@ -21,18 +21,19 @@ jobs:
           if [ "$ACTUAL" != "$EXPECTED" ]; then exit 1; fi
       - name: Verify manifest line count
         run: |
-          LINES=$(wc -l < MANIFEST.sha256)
+          LINES=$(awk 'END{print NR}' MANIFEST.sha256)
           echo "MANIFEST-LINES=$LINES"
           if [ "$LINES" -ne 5252 ]; then exit 1; fi
       - name: Verify total file count
         run: |
-          # 5261 = 5252 MANIFEST entries + 9 documented exclusions
+          # 5262 = 5252 MANIFEST entries + 10 documented exclusions
           # (MANIFEST.sha256, README.md, RELEASE_v1.0.0.md,
-          #  config/patches/README.md, 5 files under .github/).
+          #  config/patches/README.md, .gitattributes,
+          #  5 files under .github/).
           # See README Section 1 (Manifest coverage row).
           COUNT=$(find . -type f ! -path './.git/*' | wc -l)
           echo "TOTAL-FILES=$COUNT"
-          if [ "$COUNT" -ne 5261 ]; then exit 1; fi
+          if [ "$COUNT" -ne 5262 ]; then exit 1; fi
 
   verify-certificate:
     name: Certificate Hash
@@ -69,8 +70,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify lean-toolchain pin
         run: |
-          if ! grep -q "leanprover/lean4:v4.34.1" lean-toolchain; then
-            echo "lean-toolchain not pinned to v4.34.1"
+          if ! grep -q "leanprover/lean4:v4.34.1" config/lean-toolchain; then
+            echo "config/lean-toolchain not pinned to v4.34.1"
             exit 1
           fi
 
