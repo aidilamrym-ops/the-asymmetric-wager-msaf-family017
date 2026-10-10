@@ -1,4 +1,4 @@
-﻿# the-asymmetric-wager-msaf-family017
+﻿# The Asymmetric Wager: MSAF Family 017 Audit Vault
 
 **Independent Automated Audit Vault and Axiomatic Footprint Record for OpenAI Mathematics Catalogue Family 017 (The Irrationality Exponent of Ï€)**
 
