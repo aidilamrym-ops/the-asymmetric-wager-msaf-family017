@@ -1,0 +1,48 @@
+# ---- OS environment leaks ----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# ---- Editor and tool caches ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.orig
+*.rej
+*.bak
+
+# ---- Logs, telemetry, temp ----
+*.log
+*.binlog
+*.trace
+*.tmp
+*.temp
+drv.out.txt
+drv.err.txt
+
+# ---- Lake / Lean local rebuild state (mirror is a proof vault, not a build tree) ----
+.lake/
+build/
+leanpkg.path
+_target/
+*.olean.server
+*.olean.private
+
+# ---- Explicitly tracked (negations; harmless, documentary) ----
+!lean/**/*.lean
+!proofs/**
+!harness/*.ps1
+!config/lean-toolchain
+!config/lakefile.lean
+!config/lake-manifest.json
+!config/patches/**
+!OAI_FAMILY_017_CORE_CERTIFICATE.md
+!MANIFEST.sha256
+!.gitignore

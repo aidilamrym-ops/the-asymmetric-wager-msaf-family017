@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this methodology or audit, please cite it as below."
+title: "Anatomy of AI Mathematical Proofs: Axiomatic Footprint of OpenAI's PiExponent Family"
+type: software
+authors:
+  - family-names: Amry
+    given-names: Muhammad Aidil
+    orcid: "https://orcid.org/0009-0002-9718-9710"
+version: 1.0.0
+date-released: 2026-10-10
+repository-code: "https://github.com/aidilamrym-ops/the-asymmetric-wager-msaf"
+url: "https://github.com/aidilamrym-ops/the-asymmetric-wager-msaf"
+keywords:
+  - Formal Verification
+  - Lean 4
+  - AI Safety
+  - Rigorous Numerics
+  - Pi Exponent
+abstract: >-
+  Independent formal audit of the OpenAI Mathematics Catalogue Family 017
+  (OAI.NumberTheory.PiExponent): 869/869 modules elaborated under
+  leanprover/lean4:v4.34.1, axiomatic footprint
+  [propext, Classical.choice, Quot.sound], with cryptographic manifest
+  and disclosed harness anomalies.
+license: CC-BY-4.0
