@@ -1,8 +1,8 @@
 ﻿# The Asymmetric Wager: MSAF Family 017 Audit Vault
 
-**Independent Automated Audit Vault and Axiomatic Footprint Record for OpenAI Mathematics Catalogue Family 017 (The Irrationality Exponent of Ï€)**
+**Independent Automated Audit Vault and Axiomatic Footprint Record for OpenAI Mathematics Catalogue Family 017 (The Irrationality Exponent of π)**
 
-Formal Verification Report Â· Forensic Chronology Log Â· Public Replication Receipt
+Formal Verification Report · Forensic Chronology Log · Public Replication Receipt
 
 ---
 
@@ -12,9 +12,9 @@ Formal Verification Report Â· Forensic Chronology Log Â· Public Replication 
 |---|---|
 | Repository | `aidilamrym-ops/the-asymmetric-wager-msaf-family017` (public) |
 | Remote tree | 5,262 files, clean working tree, branch `main` |
-| Verified commits | `d151220` (vault initialization) â†’ `6b0be7a` (URL alignment & final staging) |
-| $118B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C` |
-| Manifest coverage | 5,252 locked entries (850,044 bytes); exclusions (10): `MANIFEST.sha256` (self), `README.md` and `RELEASE_v1.0.0.md` (each quotes the manifest hash; mutual inclusion is not constructible), `config/patches/README.md` (plain patch doc, not hashed at lock time), `.gitattributes` (byte-stability pin for the two hashed receipts, post-lock), `.github/` (5 post-lock CI/template files: 2 workflows, 2 issue templates, 1 PR template) |
+| Verified commits | `d151220` (vault initialization) → `6b0be7a` (URL alignment & final staging) |
+| Manifest SHA-256 | `18B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C` |
+| Manifest coverage | 5,252 locked entries (850,044 bytes); exclusions (10): `MANIFEST.sha256` (self), `README.md` and `RELEASE_v1.0.0.md` (each quotes the manifest hash; mutual inclusion is not constructible), `config/patches/README.md` (plain patch doc, not hashed at lock time), `.gitattributes` (binary pin for `MANIFEST.sha256`, CRLF pin for the certificate; post-lock), `.github/` (5 post-lock CI/template files: 2 workflows, 2 issue templates, 1 PR template) |
 | Certificate SHA-256 | `07121A536CC5956D7F83673D288A28609711E489B7FB6FCF5EC3237F751AA2E4` (`OAI_FAMILY_017_CORE_CERTIFICATE.md`) |
 | Evaluation toolchain | Lean v4.34.1 (`leanprover/lean4:v4.34.1`), pinned `lakefile.lean` + `lake-manifest.json` |
 | Audited subtree | `OAI.NumberTheory.PiExponent`: 869/869 sources, 4,345 compiled artifacts |
@@ -27,18 +27,18 @@ Formal Verification Report Â· Forensic Chronology Log Â· Public Replication 
 
 | Phase | Window | Operation | Measured outcome |
 |---|---|---|---|
-| A â€” Pre-recovery | Hours 0â€“12 | Mass multi-threaded parallel elaboration over 869 raw `.lean` files (4 concurrent processes) | Immediate failure at the memory-commit/thermal envelope boundary: each process â‰ˆ7.6 GiB against a measured 28.9 GiB ceiling; faults surfaced as `failed to read file 'â€¦ .olean.private'` memory-mapping errors. Parallel model terminated; fault attribution impossible. |
-| B â€” Tactical pivot | Hours 12â€“18 | Strict single-process sequential, 1-way execution under physical thermal mitigation (casing detached, maximum airflow configuration) | Unit of failure â‰¡ unit of execution. Every module verified by exit code + artifact existence + size + zero residual processes before the next step. |
-| C â€” Topographical discovery | Hours 18â€“36 | Sequential scheduling against measured intra-subtree import edges | The real import graph of the OpenAI proof vault unraveled: exactly **27 dynamic dependency layers** resolving directly to `Main.lean` at the apex. |
-| D â€” Recovery yield | Hours 36â€“48 | Frontier-driven continuation from verified `.olean` presence | **393 consecutive module builds, unbroken `exit 0` sequence, zero logical fractures.** Terminal state: 869/869 modules, `Main.olean` = 28,320 bytes, wall 24 s, 9,792 jobs, memory peak 8.7/28.9 GiB. |
+| A — Pre-recovery | Hours 0–12 | Mass multi-threaded parallel elaboration over 869 raw `.lean` files (4 concurrent processes) | Immediate failure at the memory-commit/thermal envelope boundary: each process ≈7.6 GiB against a measured 28.9 GiB ceiling; faults surfaced as `failed to read file '… .olean.private'` memory-mapping errors. Parallel model terminated; fault attribution impossible. |
+| B — Tactical pivot | Hours 12–18 | Strict single-process sequential, 1-way execution under physical thermal mitigation (casing detached, maximum airflow configuration) | Unit of failure ≡ unit of execution. Every module verified by exit code + artifact existence + size + zero residual processes before the next step. |
+| C — Topographical discovery | Hours 18–36 | Sequential scheduling against measured intra-subtree import edges | The real import graph of the OpenAI proof vault unraveled: exactly **27 dynamic dependency layers** resolving directly to `Main.lean` at the apex. |
+| D — Recovery yield | Hours 36–48 | Frontier-driven continuation from verified `.olean` presence | **393 consecutive module builds, unbroken `exit 0` sequence, zero logical fractures.** Terminal state: 869/869 modules, `Main.olean` = 28,320 bytes, wall 24 s, 9,792 jobs, memory peak 8.7/28.9 GiB. |
 
-Failed-run telemetry retained in the source workspace (not shipped): `build_attempt.log`â€“`build_attempt5.log` (parallel failures), `build_attempt6.log` (1-second false PASS, no artifact), `build_attempt7.log` (truncated 20/28 sequential run), `H2_run1.log` (defective reachability run). Excluded from the vault by design.
+Failed-run telemetry retained in the source workspace (not shipped): `build_attempt.log`–`build_attempt5.log` (parallel failures), `build_attempt6.log` (1-second false PASS, no artifact), `build_attempt7.log` (truncated 20/28 sequential run), `H2_run1.log` (defective reachability run). Excluded from the vault by design.
 
 ---
 
 ## 3. Kernel Verification Disclosure (Type-A & Type-B Receipts)
 
-### Type-A â€” Logical integrity (escape-token scan, 869 modules, canary control live)
+### Type-A — Logical integrity (escape-token scan, 869 modules, canary control live)
 
 | Token class | Count |
 |---|---|
@@ -52,9 +52,9 @@ Failed-run telemetry retained in the source workspace (not shipped): `build_atte
 | `ofReduceBool` / `of_decide` | 0 |
 | `Float` | 0 |
 
-Anti-Circularity Gate `lean` scan: `FAIL=0 NOT_RUN=0` â†’ PASS.
+Anti-Circularity Gate `lean` scan: `FAIL=0 NOT_RUN=0` → PASS.
 
-### Type-B â€” Axiomatic footprint (literal kernel probe output, exit code 0)
+### Type-B — Axiomatic footprint (literal kernel probe output, exit code 0)
 
 ```lean
 'OAI.PiExponent.main' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -62,7 +62,7 @@ Anti-Circularity Gate `lean` scan: `FAIL=0 NOT_RUN=0` â†’ PASS.
 'OAI.PiExponent.flint_hills_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 
-**Certification:** the entire subtree is mathematically verified clean. Every checked declaration rests solely on Lean's classical framework permissions â€” propositional extensionality, classical choice, quotient soundness â€” with zero additional postulates.
+**Certification:** the entire subtree is mathematically verified clean. Every checked declaration rests solely on Lean's classical framework permissions — propositional extensionality, classical choice, quotient soundness — with zero additional postulates.
 
 ---
 
@@ -70,10 +70,10 @@ Anti-Circularity Gate `lean` scan: `FAIL=0 NOT_RUN=0` â†’ PASS.
 
 | Core | Repository | Function |
 |---|---|---|
-| A â€” Logical Architecture Audit | `the-asymmetric-wager-msaf-family017` (this vault) | Lean 4 kernel: symbol correctness, dependency closure, axiom integrity of `OAI.NumberTheory.PiExponent` (869 sources + 4,345 artifacts). |
-| B â€” Rigorous Bounds Testing | `guinand-weil-rigorous-numerics` | Arb ball arithmetic: outward-rounded interval evaluation of the quantitative bounds of the irrationality exponent of Ï€ under Sylvester-interval LDLáµ€ moment-matrix tests. |
+| A — Logical Architecture Audit | `the-asymmetric-wager-msaf-family017` (this vault) | Lean 4 kernel: symbol correctness, dependency closure, axiom integrity of `OAI.NumberTheory.PiExponent` (869 sources + 4,345 artifacts). |
+| B — Rigorous Bounds Testing | `guinand-weil-rigorous-numerics` | Arb ball arithmetic: outward-rounded interval evaluation of the quantitative bounds of the irrationality exponent of π under Sylvester-interval LDLᵀ moment-matrix tests. |
 
-Core A supplies the theorem statement `pi_irrationalityExponent_eq_two` as exact rational endpoints; Core B accepts an enclosure only if it contains the Core A value. Each core executes independently; agreement is measured, not assumed. The combination is a non-circular dual-core audit framework that anchors theoretical AI claims to physical parameters of the observable universe (Î”_univ).
+Core A supplies the theorem statement `pi_irrationalityExponent_eq_two` as exact rational endpoints; Core B accepts an enclosure only if it contains the Core A value. Each core executes independently; agreement is measured, not assumed. The combination is a non-circular dual-core audit framework that anchors theoretical AI claims to physical parameters of the observable universe (Δ_univ).
 
 Bridge document: `GUINAND_WEIL_LINK.md`.
 
@@ -85,8 +85,8 @@ Two harness defects were measured, disclosed, and corrected. Both are retained a
 
 | Harness | Anomaly | Disposition |
 |---|---|---|
-| H2 (reachability) | Indexed third-party dependency cache (`.lake/packages`, 164,364 files) â†’ 149,711 pseudo-orphan modules reported | Recomputation restricted to the 869 subtree sources: **869/869 reachable, 0 structural orphans.** Raw defective log retained in source workspace, excluded from vault. |
-| H3 (axiom probe) | Spurious exit code 2: relative project path combined with process directory change, plus a pattern not matching the kernel's literal `axioms: [â€¦]` format | Superseded by direct kernel probe with absolute path: exit 0, literal outputs reproduced in Section 3. Type-B verdict rests on kernel stdout, not on the script. |
+| H2 (reachability) | Indexed third-party dependency cache (`.lake/packages`, 164,364 files) → 149,711 pseudo-orphan modules reported | Recomputation restricted to the 869 subtree sources: **869/869 reachable, 0 structural orphans.** Raw defective log retained in source workspace, excluded from vault. |
+| H3 (axiom probe) | Spurious exit code 2: relative project path combined with process directory change, plus a pattern not matching the kernel's literal `axioms: […]` format | Superseded by direct kernel probe with absolute path: exit 0, literal outputs reproduced in Section 3. Type-B verdict rests on kernel stdout, not on the script. |
 
 Neither anomaly was concealed, and neither is load-bearing for the final verdict: both verdicts were re-derived by corrected, independent recomputation.
 
@@ -150,7 +150,7 @@ Two defects in the audit tooling itself were measured and are recorded so that n
 
 ### 6.4 The Topological Critical Path: Dissecting the Core Core Lemmas
 
-All five paths verified present in the staged tree (`lean/OAI/NumberTheory/PiExponent/â€¦`, on-disk check, this vault).
+All five paths verified present in the staged tree (`lean/OAI/NumberTheory/PiExponent/…`, on-disk check, this vault).
 
 1. `OAI.NumberTheory.PiExponent.Geometry.AdmissibleCurveModel`
    Serves as the primary geometric parameterization gate that bounds the deformation of the algebraic curves used to approximate fractional points. Its verification guarantees that the error terms do not leak across the 27-layer boundary.
@@ -181,7 +181,7 @@ Rebuild capacity is not shipped: `.lake/packages` (42 pinned dependencies, 164,3
 
 Prerequisites: Lean v4.34.1 toolchain, project assembled at the working root (`lakefile.lean`, `lean-toolchain`, `OAI/` sources in place), dependencies fetched via `lake update`.
 
-**Command A â€” live kernel axiom dump (`#print axioms`):**
+**Command A — live kernel axiom dump (`#print axioms`):**
 
 ```powershell
 Set-Location <clone-root>
@@ -205,7 +205,7 @@ Expected (exit 0):
 'OAI.PiExponent.flint_hills_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 
-**Command B â€” cryptographic manifest consistency:**
+**Command B — cryptographic manifest consistency:**
 
 ```powershell
 Set-Location <clone-root>

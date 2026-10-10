@@ -15,7 +15,7 @@ jobs:
       - name: Verify MANIFEST.sha256 hash
         run: |
           EXPECTED="18B72FC87EF4CD02E46D9A5DE6DFB0292B6CACB9EB142525D1AF86CC8DA29F9C"
-          ACTUAL=$(sha256sum MANIFEST.sha256 | cut -d' ' -f1)
+          ACTUAL=$(sha256sum MANIFEST.sha256 | cut -d' ' -f1 | tr '[:lower:]' '[:upper:]')
           echo "MANIFEST-HASH=$ACTUAL"
           echo "MATCH=$([ "$ACTUAL" = "$EXPECTED" ] && echo true || echo false)"
           if [ "$ACTUAL" != "$EXPECTED" ]; then exit 1; fi
@@ -43,7 +43,7 @@ jobs:
       - name: Verify OAI_FAMILY_017_CORE_CERTIFICATE.md hash
         run: |
           EXPECTED="07121A536CC5956D7F83673D288A28609711E489B7FB6FCF5EC3237F751AA2E4"
-          ACTUAL=$(sha256sum OAI_FAMILY_017_CORE_CERTIFICATE.md | cut -d' ' -f1)
+          ACTUAL=$(sha256sum OAI_FAMILY_017_CORE_CERTIFICATE.md | cut -d' ' -f1 | tr '[:lower:]' '[:upper:]')
           echo "CERT-HASH=$ACTUAL"
           if [ "$ACTUAL" != "$EXPECTED" ]; then exit 1; fi
 

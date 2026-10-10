@@ -1,8 +1,8 @@
-﻿# Release v1.0.0 â€” Formal Audit Release, OpenAI Mathematics Catalogue Family 017
+﻿# Release v1.0.0 — Formal Audit Release, OpenAI Mathematics Catalogue Family 017
 
 **Tag:** v1.0.0
 **Date:** 2026-10-10
-**Target anchor:** OpenAI Mathematics Catalogue â€” Family 017 (`OAI.NumberTheory.PiExponent`)
+**Target anchor:** OpenAI Mathematics Catalogue — Family 017 (`OAI.NumberTheory.PiExponent`)
 **Repository:** https://github.com/aidilamrym-ops/the-asymmetric-wager-msaf-family017
 
 ## Cryptographic verification payload

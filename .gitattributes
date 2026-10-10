@@ -1,7 +1,8 @@
 # Byte-stability for hash-pinned receipts.
-# MANIFEST.sha256 and OAI_FAMILY_017_CORE_CERTIFICATE.md carry published
-# SHA-256 values computed over CRLF bytes (Windows origin). Forcing eol=crlf
-# keeps every checkout byte-identical, so the CI hash gates hold on all
-# platforms. No other file carries a published byte hash.
-MANIFEST.sha256 text eol=crlf
+# MANIFEST.sha256 carries a published SHA-256 computed over its exact
+# on-disk bytes (LF lines with one trailing CRLF, Windows origin). It is
+# pinned binary (-text) so every checkout reproduces those bytes bit for bit.
+# OAI_FAMILY_017_CORE_CERTIFICATE.md is pure CRLF; eol=crlf keeps every
+# checkout byte-identical. No other file carries a published byte hash.
+MANIFEST.sha256 -text
 OAI_FAMILY_017_CORE_CERTIFICATE.md text eol=crlf
