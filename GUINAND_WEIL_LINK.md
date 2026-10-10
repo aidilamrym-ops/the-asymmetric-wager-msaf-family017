@@ -4,7 +4,7 @@
 
 | Core | Repository |
 |---|---|
-| A — formal (this vault) | https://github.com/aidilamrym-ops/the-asymmetric-wager-msaf |
+| A — formal (this vault) | https://github.com/aidilamrym-ops/the-asymmetric-wager-msaf-family017 |
 | B — numeric | https://github.com/aidilamrym-ops/guinand-weil-rigorous-numerics |
 
 ## Scope

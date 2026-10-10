@@ -8,8 +8,8 @@ authors:
     orcid: "https://orcid.org/0009-0002-9718-9710"
 version: 1.0.0
 date-released: 2026-10-10
-repository-code: "https://github.com/aidilamrym-ops/the-asymmetric-wager-msaf"
-url: "https://github.com/aidilamrym-ops/the-asymmetric-wager-msaf"
+repository-code: "https://github.com/aidilamrym-ops/the-asymmetric-wager-msaf-family017"
+url: "https://github.com/aidilamrym-ops/the-asymmetric-wager-msaf-family017"
 keywords:
   - Formal Verification
   - Lean 4
